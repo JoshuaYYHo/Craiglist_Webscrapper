@@ -10,7 +10,6 @@ website = BeautifulSoup(link, 'lxml')
 #list_item = website.find_all('li', class_ = "result-row")
 master_list = []
 
-
 for item in website.find_all('li', "result-row"):
     item_list = []
     masterRoot = item.find('p', "result-info")
@@ -30,9 +29,6 @@ for item in website.find_all('li', "result-row"):
     
     """
     master_list.append(item_list)
-    print(item_list)
-
-print(master_list)
 
 #class to reorganize the items in the list
 class electronic:
@@ -43,10 +39,8 @@ class electronic:
     def print_data(self):
         print("Title: " + self.title + "\n" + "Price: " + self.price + "\n" + "Date: "+ self.date + "\n")
 
-
 for j in master_list:
     item = electronic(j[0], j[1], j[2])
-    j = item
     item.print_data()
 
 def cheapest_item():
@@ -54,6 +48,4 @@ def cheapest_item():
     for i in master_list:
         if cheapest_item.price < i.price:
             cheapest_item = i.price
-    return cheapest_item.print_data()
-
-print(cheapest_item)
+    print(cheapest_item)
